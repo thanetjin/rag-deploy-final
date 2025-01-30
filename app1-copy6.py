@@ -11,14 +11,16 @@ from dotenv import load_dotenv
 import streamlit as st
 import os
 from dotenv import load_dotenv
+import streamline as st
 
 load_dotenv()
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
+os.environ["GOOGLE_API_KEY"] = st.secrets.get("GOOGLE_API_KEY")
 
 
 # Create the vector store using the specified parameters
 index_name = "thanet3" 
-pinecone_api_key = os.environ.get("PINECONE_API_KEY")
+pinecone_api_key = st.secrets.get("PINECONE_API_KEY")
 pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(index_name)
 huggingface_ef = HuggingFaceEmbeddings(model_name="BAAI/bge-m3",model_kwargs={"device": "cpu"})
