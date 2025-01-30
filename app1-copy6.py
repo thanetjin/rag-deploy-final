@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 import streamlit as st
 import os
 from dotenv import load_dotenv
-import streamline as st
 
 load_dotenv()
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
