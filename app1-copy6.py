@@ -23,7 +23,7 @@ pinecone_api_key = st.secrets.get("PINECONE_API_KEY")
 pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(index_name)
 huggingface_ef = HuggingFaceInferenceAPIEmbeddings(
-        api_key="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"
+        api_key="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",
         model_name="BAAI/bge-m3"
     )
 vector_store = PineconeVectorStore(index=index, embedding=huggingface_ef)
