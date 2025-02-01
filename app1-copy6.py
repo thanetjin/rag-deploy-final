@@ -3,6 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
@@ -21,7 +22,10 @@ index_name = "thanet3"
 pinecone_api_key = st.secrets.get("PINECONE_API_KEY")
 pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(index_name)
-huggingface_ef = HuggingFaceEmbeddings(model_name="BAAI/bge-m3",model_kwargs={"device": "cpu"})
+huggingface_ef = HuggingFaceInferenceAPIEmbeddings(
+        api_key=os.environ["HUGGINGFACEHUB_API_TOKEN"]
+        model_name="BAAI/bge-m3"
+    )
 vector_store = PineconeVectorStore(index=index, embedding=huggingface_ef)
 
 # Returns history_retriever_chain
