@@ -18,7 +18,7 @@ os.environ["GOOGLE_API_KEY"] = st.secrets.get("GOOGLE_API_KEY")
 
 
 # Create the vector store using the specified parameters
-index_name = "thanet85" 
+index_name = "course60" 
 pinecone_api_key = st.secrets.get("PINECONE_API_KEY")
 pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(index_name)
