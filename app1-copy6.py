@@ -24,7 +24,7 @@ pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(index_name)
 huggingface_ef = HuggingFaceInferenceAPIEmbeddings(
         api_key="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",
-        model_name="BAAI/bge-m3"
+        model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     )
 vector_store = PineconeVectorStore(index=index, embedding=huggingface_ef)
 
