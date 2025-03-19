@@ -9,3 +9,4 @@ streamlit==1.41.1
 langchain-experimental==0.3.4
 sentence-transformers==3.3.1
 langchainhub==0.1.21
+PyPDF2
