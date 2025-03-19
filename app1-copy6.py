@@ -18,6 +18,10 @@ from langchain.schema import Document
 
 os.environ["LLAMA_CLOUD_API_KEY"] = st.secrets.get("LLAMA_CLOUD_API_KEY")
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
+os.environ["GROQ_API_KEY"] = st.secrets.get("GROQ_API_KEY")
+import nest_asyncio
+nest_asyncio.apply()
+
 load_dotenv()
 
 # Load API Keys
@@ -31,7 +35,7 @@ print("Index names are:", index_names[0])
 
 index = pc.Index(index_names[0])
 huggingface_ef = HuggingFaceInferenceAPIEmbeddings(
-    api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
+    api_key="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",
     model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
 
