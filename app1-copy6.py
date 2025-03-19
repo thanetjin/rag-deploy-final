@@ -16,17 +16,17 @@ import time
 from PyPDF2 import PdfReader
 from langchain.schema import Document
 
-os.environ["LLAMA_CLOUD_API_KEY"] = "llx-aju7w6cXsgyFPGEsECuHMQIrp3th95a1lOfOxyuXkohnGKur"
+os.environ["LLAMA_CLOUD_API_KEY"] = st.secrets.get("LLAMA_CLOUD_API_KEY")
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
+os.environ["GROQ_API_KEY"] = st.secrets.get("GROQ_API_KEY")
 import nest_asyncio
 nest_asyncio.apply()
 
 load_dotenv()
 
 # Load API Keys
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
-pinecone_api_key = os.getenv("PINECONE_API_KEY")
-os.environ["GROQ_API_KEY"] = "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"
 
+pinecone_api_key = st.secrets.get("pinecone_api_key")
 # Initialize Pinecone
 pc = Pinecone(api_key=pinecone_api_key)
 index_list = pc.list_indexes()
