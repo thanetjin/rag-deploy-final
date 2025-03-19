@@ -18,7 +18,6 @@ from langchain.schema import Document
 
 os.environ["LLAMA_CLOUD_API_KEY"] = st.secrets.get("LLAMA_CLOUD_API_KEY")
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets.get("HUGGINGFACEHUB_API_TOKEN")
-os.environ["GROQ_API_KEY"] = st.secrets.get("GROQ_API_KEY")
 import nest_asyncio
 nest_asyncio.apply()
 
