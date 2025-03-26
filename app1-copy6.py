@@ -32,7 +32,7 @@ print("Index names are:", index_names[0])
 
 index = pc.Index(index_names[0])
 huggingface_ef = HuggingFaceInferenceAPIEmbeddings(
-    api_key="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",
+    api_key="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",
     model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
 
