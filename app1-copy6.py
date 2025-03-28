@@ -165,7 +165,7 @@ if uploaded_file and st.session_state.file_uploaded:
                 reader = PdfReader(file)
                 for page in reader.pages:
                     extracted_text += page.extract_text() + "\n"            
-            is_transcript = "Date Of Graduation" in extracted_text
+            is_transcript = "Computer Science" in extracted_text
             
             if is_transcript:
                 st.success("The uploaded document is identified as a transcript.")                
